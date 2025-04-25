@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda Personal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Mi Agenda Personal</h1>
+            <a href="#" id="logoutBtn" class="btn-logout hidden">Cerrar sesión</a>
+        </header>
+        
+        <main>
+            <div class="container">
+                <!-- Auth Section (Login/Register) -->
+                <div id="authSection" class="login-register">
+                    <div class="tab-container">
+                        <div class="tab active" id="loginTab">Iniciar Sesión</div>
+                        <div class="tab" id="registerTab">Registrarse</div>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required>
+                            <div class="error-message" id="loginEmailError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña</label>
+                            <input type="password" id="loginPassword" required>
+                            <div class="error-message" id="loginPasswordError"></div>
+                        </div>
+                        <button type="submit">Iniciar Sesión</button>
+                        <div class="error-message" id="loginError"></div>
+                    </form>
+                    
+                    <!-- Register Form -->
+                    <form id="registerForm" class="hidden">
+                        <div class="form-group">
+                            <label for="registerName">Nombre</label>
+                            <input type="text" id="registerName" required>
+                            <div class="error-message" id="registerNameError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" required>
+                            <div class="error-message" id="registerEmailError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Contraseña</label>
+                            <input type="password" id="registerPassword" required>
+                            <div class="error-message" id="registerPasswordError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirmar Contraseña</label>
+                            <input type="password" id="registerConfirmPassword" required>
+                            <div class="error-message" id="registerConfirmPasswordError"></div>
+                        </div>
+                        <button type="submit">Registrarse</button>
+                        <div class="error-message" id="registerError"></div>
+                        <div class="success-message" id="registerSuccess"></div>
+                    </form>
+                </div>
+                
+                <!-- Agenda Section -->
+                <div id="agendaSection" class="agenda-container hidden">
+                    <div class="agenda-header">
+                        <h2>Mi Agenda</h2>
+                        <div class="agenda-filter">
+                            <label for="datePicker">Fecha:</label>
+                            <input type="date" id="datePicker">
+                        </div>
+                        <button id="addActivityBtn">Nueva Actividad</button>
+                    </div>
+                    
+                    <div id="agendaList" class="agenda-list">
+                        <!-- Activities will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Add/Edit Activity Modal -->
+        <div id="activityModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Nueva Actividad</h2>
+                <form id="activityForm">
+                    <input type="hidden" id="activityId">
+                    <div class="form-group">
+                        <label for="activityDate">Fecha</label>
+                        <input type="date" id="activityDate" required>
+                        <div class="error-message" id="activityDateError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activityTitle">Título</label>
+                        <input type="text" id="activityTitle" required>
+                        <div class="error-message" id="activityTitleError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activityDescription">Descripción</label>
+                        <textarea id="activityDescription" rows="3" required></textarea>
+                        <div class="error-message" id="activityDescriptionError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activityLocation">Ubicación</label>
+                        <input type="text" id="activityLocation" required>
+                        <div class="error-message" id="activityLocationError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activityStartTime">Hora de inicio</label>
+                        <input type="time" id="activityStartTime" required>
+                        <div class="error-message" id="activityStartTimeError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activityEndTime">Hora de finalización</label>
+                        <input type="time" id="activityEndTime" required>
+                        <div class="error-message" id="activityEndTimeError"></div>
+                    </div>
+                    <div class="error-message" id="activityFormError"></div>
+                    <button type="submit" id="saveActivityBtn">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
